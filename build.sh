@@ -71,3 +71,14 @@ else
     echo "Ros2cs build failed!"
     exit 1
 fi
+
+# Source the ROS2 environment setup script
+echo "Sourcing ROS2 setup..."
+source /home/taio/code/ros2-for-unity/install/setup.bash
+
+# Copy the Ros2ForUnity directory to the Unity project
+# echo "Copying Ros2ForUnity to Unity project..."
+# cp -R /home/taio/code/ros2-for-unity/install/asset/Ros2ForUnity /home/taio/Unity/Projects/unity_ros2/Assets/
+# echo "Copy completed."
+
+# /opt/unityhub/unityhub -projectPath /home/taio/Unity/Projects/unity_ros2

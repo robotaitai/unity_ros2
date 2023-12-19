@@ -1,0 +1,31 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/taio/code/ros2-for-unity/install/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/taio/code/ros2-for-unity/src/ros2cs/src/ros2/common_interfaces/sensor_msgs/include/**",
+        "/home/taio/code/ros2-for-unity/src/ros2cs/src/ros2/geometry2/tf2/include/**",
+        "/home/taio/code/ros2-for-unity/src/ros2cs/src/ros2/geometry2/tf2_bullet/include/**",
+        "/home/taio/code/ros2-for-unity/src/ros2cs/src/ros2/geometry2/tf2_eigen/include/**",
+        "/home/taio/code/ros2-for-unity/src/ros2cs/src/ros2/geometry2/tf2_eigen_kdl/include/**",
+        "/home/taio/code/ros2-for-unity/src/ros2cs/src/ros2/geometry2/tf2_geometry_msgs/include/**",
+        "/home/taio/code/ros2-for-unity/src/ros2cs/src/ros2/geometry2/tf2_kdl/include/**",
+        "/home/taio/code/ros2-for-unity/src/ros2cs/src/ros2/geometry2/tf2_ros/include/**",
+        "/home/taio/code/ros2-for-unity/src/ros2cs/src/ros2/geometry2/tf2_sensor_msgs/include/**",
+        "/home/taio/code/ros2-for-unity/src/ros2cs/src/ros2/rcl_interfaces/test_msgs/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

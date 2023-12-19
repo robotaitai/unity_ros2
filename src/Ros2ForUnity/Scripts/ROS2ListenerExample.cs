@@ -25,22 +25,48 @@ public class ROS2ListenerExample : MonoBehaviour
 {
     private ROS2UnityComponent ros2Unity;
     private ROS2Node ros2Node;
-    private ISubscription<std_msgs.msg.String> chatter_sub;
-
+    private ISubscription<geometry_msgs.msg.Twist> twist_sub;
+    private float[] transformPosition = new float[3];
+    float speed = 0.1f;
+    bool isMoving = false;
     void Start()
     {
         ros2Unity = GetComponent<ROS2UnityComponent>();
     }
+    
+
 
     void Update()
     {
         if (ros2Node == null && ros2Unity.Ok())
         {
             ros2Node = ros2Unity.CreateNode("ROS2UnityListenerNode");
-            chatter_sub = ros2Node.CreateSubscription<std_msgs.msg.String>(
-              "chatter", msg => Debug.Log("Unity listener heard: [" + msg.Data + "]"));
+            twist_sub = ros2Node.CreateSubscription<geometry_msgs.msg.Twist>(
+              "/taio/command", msg => {
+                parse(msg);
+              } 
+            );
         }
-    }
-}
+        if(isMoving){
+            transform.position = 
+            new Vector3(transform.position.x + (speed*transformPosition[0]), 
+                         transform.position.y + (speed*transformPosition[1]), 
+                         transform.position.z + (speed*transformPosition[2]));
+        }
 
-}  // namespace ROS2
+        transform.position = new Vector3(transformPosition[0], transformPosition[1], transformPosition[2]);
+        
+    }
+    
+    void parse(geometry_msgs.msg.Twist msg)
+    {
+        Debug.Log("box x: [" + msg.Linear.X + "]");
+        transformPosition[0] = (float) msg.Linear.X;
+        transformPosition[1] = (float) msg.Linear.Y;    
+        transformPosition[2] = (float) msg.Angular.X;
+
+    }
+    }
+        
+
+}// namespace ROS2
